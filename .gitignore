@@ -11,3 +11,4 @@ Runtime/*.vcxproj*
 *.sln
 GenerateProjects.bat
 /BraveFish/vendor/Glad/*.vcxproj
+/GenerateProjects.bat
