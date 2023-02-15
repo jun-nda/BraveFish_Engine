@@ -1,0 +1,14 @@
+# Directories
+.vs/
+bin/
+bin-int/
+
+# Files
+*.user
+BraveFish/*.vcxproj*
+FishEditor/*.vcxproj*
+Runtime/*.vcxproj*
+BraveFish/vendor/
+*.sln
+GenerateProjects.bat
+/BraveFish/vendor/Glad/*.vcxproj
