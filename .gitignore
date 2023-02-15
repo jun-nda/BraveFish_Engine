@@ -8,7 +8,6 @@ bin-int/
 BraveFish/*.vcxproj*
 FishEditor/*.vcxproj*
 Runtime/*.vcxproj*
-BraveFish/vendor/
 *.sln
 GenerateProjects.bat
 /BraveFish/vendor/Glad/*.vcxproj
