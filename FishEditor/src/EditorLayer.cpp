@@ -3,6 +3,7 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "BraveFish/Renderer/Renderer3D.h"
 
 namespace BraveFish {
 
@@ -41,33 +42,14 @@ namespace BraveFish {
 		{
 			HZ_PROFILE_SCOPE("Renderer Prep");
 			m_Framebuffer->Bind();
-			BraveFish::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
+			BraveFish::RenderCommand::SetClearColor(glm::vec4( 0.1f, 0.1f, 0.1f, 1 ));
 			BraveFish::RenderCommand::Clear();
 		}
 
 		{
-			static float rotation = 0.0f;
-			rotation += ts * 50.0f;
-
 			HZ_PROFILE_SCOPE("Renderer Draw");
-			BraveFish::Renderer2D::BeginScene(m_CameraController.GetCamera());
-			BraveFish::Renderer2D::DrawRotatedQuad({ 1.0f, 0.0f }, { 0.8f, 0.8f }, -45.0f, { 0.8f, 0.2f, 0.3f, 1.0f });
-			BraveFish::Renderer2D::DrawQuad({ -1.0f, 0.0f }, { 0.8f, 0.8f }, { 0.8f, 0.2f, 0.3f, 1.0f });
-			BraveFish::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, m_SquareColor);
-			BraveFish::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 20.0f, 20.0f }, m_CheckerboardTexture, 10.0f);
-			BraveFish::Renderer2D::DrawRotatedQuad({ -2.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, rotation, m_CheckerboardTexture, 20.0f);
-			BraveFish::Renderer2D::EndScene();
-
-			BraveFish::Renderer2D::BeginScene(m_CameraController.GetCamera());
-			for (float y = -5.0f; y < 5.0f; y += 0.5f)
-			{
-				for (float x = -5.0f; x < 5.0f; x += 0.5f)
-				{
-					glm::vec4 color = { (x + 5.0f) / 10.0f, 0.4f, (y + 5.0f) / 10.0f, 0.7f };
-					BraveFish::Renderer2D::DrawQuad({ x, y }, { 0.45f, 0.45f }, color);
-				}
-			}
-			BraveFish::Renderer2D::EndScene();
+            Renderer3D::Init();
+                        
 			m_Framebuffer->Unbind();
 		}
 	}

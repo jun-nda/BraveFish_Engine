@@ -20,6 +20,8 @@
 // ---Renderer------------------------
 #include "BraveFish/Renderer/Renderer.h"
 #include "BraveFish/Renderer/Renderer2D.h"
+#include "BraveFish/Renderer/Renderer3D.h"
+
 #include "BraveFish/Renderer/RenderCommand.h"
 
 #include "BraveFish/Renderer/Buffer.h"
