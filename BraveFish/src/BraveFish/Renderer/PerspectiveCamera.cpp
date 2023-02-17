@@ -27,6 +27,11 @@ void PerspectiveCamera::calculateViewMatrix() {
     m_viewMatrix = glm::lookAt(v_position, ZERO_POINT_POSITION, UP_DIRECTION);
 }
 
-void PerspectiveCamera::calculateProjectionMatrix() {}
+void PerspectiveCamera::calculateProjectionMatrix() {
+    Application& app = Application::Get();
+
+    m_projectionMatrix = glm::perspective(
+        glm::radians(45.0f), (float)app.GetWindow().GetWidth() / (float)app.GetWindow().GetHeight(), NEARFACE, FARFACE);
+}
 
 } // namespace BraveFish
