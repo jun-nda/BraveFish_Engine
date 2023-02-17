@@ -8,3 +8,6 @@
 [submodule "BraveFish/vendor/spdlog"]
 	path = BraveFish/vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "BraveFish/vendor/glm"]
+	path = BraveFish/vendor/glm
+	url = https://github.com/g-truc/glm
