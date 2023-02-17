@@ -15,8 +15,7 @@ namespace BraveFish {
 	void EditorLayer::OnAttach()
 	{
 		HZ_PROFILE_FUNCTION();
-
-		m_CheckerboardTexture = BraveFish::Texture2D::Create("assets/textures/Checkerboard.png");
+        Renderer3D::Init();
 
 		BraveFish::FramebufferSpecification fbSpec;
 		fbSpec.Width = 1280;
@@ -33,22 +32,15 @@ namespace BraveFish {
 	{
 		HZ_PROFILE_FUNCTION();
 
-		// Update
-        if (m_ViewportFocused)
-			m_CameraController.OnUpdate(ts);
-
-		// Render
-		BraveFish::Renderer2D::ResetStats();
 		{
 			HZ_PROFILE_SCOPE("Renderer Prep");
 			m_Framebuffer->Bind();
-			BraveFish::RenderCommand::SetClearColor(glm::vec4( 0.1f, 0.1f, 0.1f, 1 ));
-			BraveFish::RenderCommand::Clear();
 		}
+
+		Renderer3D::Flush();
 
 		{
 			HZ_PROFILE_SCOPE("Renderer Draw");
-            Renderer3D::Init();
                         
 			m_Framebuffer->Unbind();
 		}

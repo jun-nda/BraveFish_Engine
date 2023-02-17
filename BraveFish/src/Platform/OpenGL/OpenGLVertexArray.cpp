@@ -29,6 +29,7 @@ namespace BraveFish {
 	OpenGLVertexArray::OpenGLVertexArray()
 	{
 		HZ_PROFILE_FUNCTION();
+        glEnable(GL_DEPTH_TEST); // temp
 
 		glCreateVertexArrays(1, &m_RendererID);
 	}

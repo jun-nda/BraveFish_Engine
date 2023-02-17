@@ -8,11 +8,12 @@
 const glm::vec3 ZERO_POINT_POSITION = glm::vec3(0.0f, 0.0f, 0.0f);
 const glm::vec3 UP_DIRECTION        = glm::vec3(0.0f, 1.0f, 0.0f);
 
-const float NEARFACE = 1.0f;
+const float NEARFACE = 0.1f;
 const float FARFACE  = 100.f;
 
 namespace BraveFish {
-PerspectiveCamera::PerspectiveCamera(const glm::vec3& position) {
+PerspectiveCamera::PerspectiveCamera(const glm::vec3& position)
+    : v_position(position) {
     calculateViewMatrix();
     calculateProjectionMatrix();
 }
@@ -24,14 +25,6 @@ void PerspectiveCamera::calculateViewMatrix() {
     // glm::vec3 cameraY = glm::normalize(glm::cross(cameraZ, cameraX));
 
     m_viewMatrix = glm::lookAt(v_position, ZERO_POINT_POSITION, UP_DIRECTION);
-
-    Application& app = Application::Get();
-
-    m_projectionMatrix = glm::perspective(
-        glm::radians(45.0f), (float)app.GetWindow().GetWidth() / (float)app.GetWindow().GetHeight(), NEARFACE, FARFACE);
-
-    
-
 }
 
 void PerspectiveCamera::calculateProjectionMatrix() {}
