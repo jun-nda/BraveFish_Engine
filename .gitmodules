@@ -1,7 +1,4 @@
 
-[submodule "BraveFish/vendor/glm"]
-	path = BraveFish/vendor/glm
-	url = https://github.com/Groovounet/glm
 [submodule "BraveFish/vendor/GLFW"]
 	path = BraveFish/vendor/GLFW
 	url = https://github.com/jun-nda/glfw
