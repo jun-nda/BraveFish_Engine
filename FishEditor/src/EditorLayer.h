@@ -17,7 +17,7 @@ namespace BraveFish {
 		virtual void OnImGuiRender() override;
 		void OnEvent(Event& e) override;
 	private:
-		BraveFish::OrthographicCameraController m_CameraController;
+		BraveFish::PerspectiveCamera m_PerspectiveCamera;
 
 		// Temp
 		Ref<VertexArray> m_SquareVA;

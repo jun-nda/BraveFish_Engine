@@ -6,6 +6,9 @@
 #include "BraveFish/Renderer/Shader.h"
 #include "BraveFish/Renderer/VertexArray.h"
 #include "BraveFish/Renderer/RenderCommand.h"
+#include "BraveFish/Core/Application.h"
+
+#include <glm/gtc/matrix_transform.hpp>
 
 namespace BraveFish {
 
@@ -20,11 +23,6 @@ void Renderer3D::Init() { InitCube(); }
 static Render3DData data;
 
 void Renderer3D::InitCube() {
-    PerspectiveCamera camera(glm::vec3(0.0f, 0.0f, 3.0f));
-
-    const glm::mat4& view       = camera.getViewMatrix();
-    const glm::mat4& projection = camera.getProjectionMatrix();
-
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
     float vertices[] = {
@@ -54,6 +52,14 @@ void Renderer3D::InitCube() {
     data.m_shader = Shader::Create("assets/shaders/cube.glsl");
     data.m_shader->Bind();
 
+}
+
+void Renderer3D::BeginScene( const PerspectiveCamera& camera ) {
+    const glm::mat4& view = camera.GetViewMatrix();
+    Application&     app  = Application::Get();
+
+    const glm::mat4& projection = glm::perspective(
+        glm::radians(45.0f), (float)app.GetWindow().GetWidth() / (float)app.GetWindow().GetHeight(), 0.1f, 100.f);
     data.m_shader->SetMat4("model", glm::mat4(1.0f));
     data.m_shader->SetMat4("view", view);
     data.m_shader->SetMat4("projection", projection);

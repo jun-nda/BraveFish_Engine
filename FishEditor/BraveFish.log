@@ -1,5 +1,5 @@
-[17:54:04] [info] HAZEL: Creating window FishEditor (1280, 720)
-[17:54:04] [info] HAZEL: OpenGL Info:
-[17:54:04] [info] HAZEL:   Vendor: Intel
-[17:54:04] [info] HAZEL:   Renderer: Intel(R) UHD Graphics 750
-[17:54:04] [info] HAZEL:   Version: 4.6.0 - Build 30.0.101.1692
+[12:24:39] [info] HAZEL: Creating window FishEditor (1280, 720)
+[12:24:39] [info] HAZEL: OpenGL Info:
+[12:24:39] [info] HAZEL:   Vendor: NVIDIA Corporation
+[12:24:39] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3050 Ti Laptop GPU/PCIe/SSE2
+[12:24:39] [info] HAZEL:   Version: 4.6.0 NVIDIA 517.00

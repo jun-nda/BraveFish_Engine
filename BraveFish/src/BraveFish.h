@@ -14,6 +14,7 @@
 #include "BraveFish/Core/KeyCodes.h"
 #include "BraveFish/Core/MouseCodes.h"
 #include "BraveFish/Renderer/OrthographicCameraController.h"
+#include "BraveFish/Renderer/PerspectiveCamera.h"
 
 #include "BraveFish/ImGui/ImGuiLayer.h"
 
